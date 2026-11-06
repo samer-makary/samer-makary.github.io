@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samer Makary · Software Engineer</title>
+<meta name="description" content="Senior software engineer at Amazon Ads. I build real-time systems: ad serving and filtering at scale, globally replicated data stores, live audio, and location services.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Samer Makary · Software Engineer">
+<meta property="og:description" content="Senior software engineer at Amazon Ads. I build real-time systems: ad serving and filtering at scale, globally replicated data stores, live audio, and location services.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232456B3'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' text-anchor='middle' fill='white'%3ESM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="site">
+
+  <header class="top">
+    <div>
+      <h1>Samer Makary</h1>
+      <p class="title">Senior software engineer, Amazon Ads · Seattle, WA</p>
+      <div class="links">
+        <a href="https://github.com/samer-makary/my-latex-resume/blob/main/Samer%20Samy%20Makary.pdf">Résumé (PDF)</a>
+        <a href="https://github.com/samer-makary">GitHub</a>
+        <a href="mailto:samer.samy.nazzir@gmail.com">Email</a>
+      </div>
+    </div>
+    <img class="photo" src="img/headshot.webp" width="112" height="112" alt="Portrait of Samer Makary">
+  </header>
+
+  <section class="intro first">
+    <p>I build real-time systems that make millions of small decisions a second and have to get them right. For fourteen years that has meant ad serving, globally replicated data stores, live audio, and location services.</p>
+    <p>Today I'm the tech lead of the filtering services inside Amazon Ads' next-generation ad server, the part that decides, on every shopper request, which ads may be shown. I lead designs that span nine-plus teams and launches that roll out worldwide.</p>
+  </section>
+
+  <section>
+    <p class="kicker">Story 1</p>
+    <h2>Ads on filtered search results</h2>
+    <div class="story">
+      <figure>
+        <p class="key"><span><i style="background:#7A1FFF"></i>filter selected and the result text that satisfies it</span><span><i style="background:#D60082"></i>Sponsored label</span></p>
+        <div class="duo">
+          <div class="clip">
+            <video controls muted loop playsinline preload="metadata" poster="img/scroll-brand-filter-poster.png" width="540" height="1080" aria-label="Screen animation of the Amazon app: a brand filter is picked, the results scroll, and the sponsored placements that match the brand are outlined.">
+              <source src="img/scroll-brand-filter.webm" type="video/webm">
+              <source src="img/scroll-brand-filter.mp4" type="video/mp4">
+            </video>
+            <p class="opt">Pick a brand, scroll the results: the sponsored placements match the filter.</p>
+          </div>
+          <div class="shot">
+            <a href="img/mobile-delivery-filter.webp"><img src="img/mobile-delivery-filter.webp" width="720" height="1473" alt="Phone: the Overnight by 6AM delivery filter selected on a disposable-bowls search, the bold 'Overnight 3 AM - 6 AM' delivery promise in the first result outlined in violet, and its Sponsored label outlined in magenta." loading="lazy"></a>
+            <p class="opt">Delivery speed: the filter and the delivery promise it matches.</p>
+          </div>
+        </div>
+        <div class="shot wide">
+          <a href="img/desktop-delivery-overnight.webp"><img src="img/desktop-delivery-overnight.webp" width="1800" height="1056" alt="Desktop: the Prime delivery filter 'Overnight by 10AM' ticked on a protein-shake search, outlined in violet, with four Sponsored placements outlined in magenta." loading="lazy"></a>
+          <p class="opt">Desktop, delivery speed: four sponsored placements on a filtered page.</p>
+        </div>
+        <div class="shot wide">
+          <a href="img/desktop-subscribe-save.webp"><img src="img/desktop-subscribe-save.webp" width="1800" height="1112" alt="Desktop: the Subscribe and Save filter ticked on a protein-shake search, outlined in violet, with the matching 'Extra off when you subscribe' text in three results outlined in violet and their Sponsored labels outlined in magenta." loading="lazy"></a>
+          <p class="opt">Desktop, Subscribe &amp; Save: each sponsored result carries the offer the filter asked for.</p>
+        </div>
+        <figcaption>Shoppers narrow results with filters such as brand, price, or delivery speed. Until this work, those filtered pages carried no sponsored placements. Click any image to enlarge.</figcaption>
+      </figure>
+      <div class="pdr">
+        <div><b>Problem</b><p>Filtered result pages served no sponsored ads, and supporting each new filter took 12+ weeks of bespoke engineering.</p></div>
+        <div><b>What I did</b><p>Owned the joint goal between Sponsored Ads and Retail Search, prototyped the integration, and led the auction-stage experiment across three teams, then the worldwide rollout.</p></div>
+        <div><b>Result</b><p>+0.3% Sponsored Products revenue, about $88MM projected annual. New filters are now supported on launch day.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Story 2</p>
+    <h2>What an ad server decides in 200 milliseconds</h2>
+    <div class="story">
+      <figure>
+        <svg viewBox="0 0 760 250" role="img" aria-label="Flow of one shopper request through the ad server: targeting, search filters, compliance, budget, then auction, then the page, all within 200 milliseconds at p99">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker>
+          </defs>
+          <g font-family="Source Sans 3, Helvetica Neue, Arial, sans-serif" font-size="14" fill="var(--ink)">
+            <rect x="10" y="80" width="96" height="56" rx="6" fill="var(--tile)" stroke="var(--rule)"/>
+            <text x="58" y="104" text-anchor="middle">shopper</text><text x="58" y="122" text-anchor="middle">request</text>
+            <line x1="106" y1="108" x2="140" y2="108" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <rect x="142" y="60" width="380" height="96" rx="8" fill="none" stroke="var(--accent)" stroke-dasharray="5 4"/>
+            <text x="332" y="50" text-anchor="middle" fill="var(--accent)" font-weight="600" font-size="13">filtering services · I lead this stage</text>
+
+            <rect x="154" y="84" width="82" height="48" rx="6" fill="var(--fig)" stroke="var(--rule)"/><text x="195" y="113" text-anchor="middle">targeting</text>
+            <line x1="236" y1="108" x2="246" y2="108" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+            <rect x="248" y="84" width="82" height="48" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="289" y="104" text-anchor="middle">search</text><text x="289" y="121" text-anchor="middle">filters</text>
+            <line x1="330" y1="108" x2="340" y2="108" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+            <rect x="342" y="84" width="82" height="48" rx="6" fill="var(--fig)" stroke="var(--rule)"/><text x="383" y="113" text-anchor="middle">compliance</text>
+            <line x1="424" y1="108" x2="434" y2="108" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+            <rect x="436" y="84" width="74" height="48" rx="6" fill="var(--fig)" stroke="var(--rule)"/><text x="473" y="113" text-anchor="middle">budget</text>
+
+            <line x1="522" y1="108" x2="556" y2="108" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+            <rect x="558" y="84" width="76" height="48" rx="6" fill="var(--tile)" stroke="var(--rule)"/><text x="596" y="113" text-anchor="middle">auction</text>
+            <line x1="634" y1="108" x2="668" y2="108" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+            <rect x="670" y="84" width="80" height="48" rx="6" fill="var(--tile)" stroke="var(--rule)"/><text x="710" y="104" text-anchor="middle">ads on</text><text x="710" y="121" text-anchor="middle">the page</text>
+
+            <path d="M10,190 L10,205 L750,205 L750,190" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+            <text x="380" y="232" text-anchor="middle" fill="var(--muted)" font-size="13">the whole path, for every request: 200 ms at p99</text>
+          </g>
+        </svg>
+        <figcaption>One shopper request, left to right. Candidate ads are removed at each stage; the survivors go to auction. The filtering stage is where a shopper's search filters, compliance rules, and budgets are enforced.</figcaption>
+      </figure>
+      <div class="scale">
+        <div><strong>200 ms</strong><span>p99 latency budget</span></div>
+        <div><strong>TB-scale</strong><span>distributed cache</span></div>
+        <div><strong>22</strong><span>countries, one launch</span></div>
+        <div><strong>1.08M+</strong><span>advertisers served globally</span></div>
+        <div><strong>400+</strong><span>engineers use my runbook</span></div>
+      </div>
+      <div class="pdr">
+        <div><b>Problem</b><p>A new ad server needed the shopper's search filters enforced natively, and the old engine's filtering had to move over without breaking a single placement.</p></div>
+        <div><b>What I did</b><p>Sole-authored the design and aligned four organizations behind it. I lead a team of 2 to 5 engineers and gate design reviews and operations for the service.</p></div>
+        <div><b>Result</b><p>The filter chain is live on Search, Product Detail Page, Browse, and Agentic Browse. The migration off the legacy engine was verified placement by placement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Story 3</p>
+    <h2>Letting Amp creators talk over music, live</h2>
+    <div class="story">
+      <figure>
+        <div class="amp-fig">
+          <img src="img/amp-home-card-redrawn.webp" width="720" height="1117" alt="Illustration of the Amp home screen: a live show card with a generic avatar, a generic show title and a playing track." loading="lazy">
+          <p class="opt">Illustration of the Amp home screen, drawn for this page. Not a screenshot.</p>
+        </div>
+        <div>
+          <svg viewBox="0 0 760 192" role="img" aria-label="Creator microphone and music track feed a profile switch triggered by events, so listeners hear the creator over the music within licensing rules">
+            <g font-family="Source Sans 3, Helvetica Neue, Arial, sans-serif" font-size="14" fill="var(--ink)">
+              <rect x="10" y="20" width="130" height="48" rx="6" fill="var(--tile)" stroke="var(--rule)"/><text x="75" y="49" text-anchor="middle">creator's voice</text>
+              <rect x="10" y="100" width="130" height="48" rx="6" fill="var(--tile)" stroke="var(--rule)"/><text x="75" y="129" text-anchor="middle">licensed music</text>
+              <path d="M140,44 C200,44 200,84 250,84" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+              <path d="M140,124 C200,124 200,84 250,84" fill="none" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+              <rect x="252" y="56" width="230" height="56" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+              <text x="367" y="80" text-anchor="middle" font-weight="600">wireless profile switch</text><text x="367" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">on trigger events, on the phone</text>
+              <line x1="482" y1="84" x2="560" y2="84" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#arr)"/>
+              <rect x="562" y="60" width="188" height="48" rx="6" fill="var(--tile)" stroke="var(--rule)"/><text x="656" y="89" text-anchor="middle">listeners hear both</text>
+              <text x="380" y="180" text-anchor="middle" fill="var(--muted)" font-size="13">the constraint: music-licensing rules, and no off-the-shelf way to do it across audio, the real-time SDK, and the backend</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption>Amp was Amazon Music's live radio app; above, an illustration of its home screen. Creators wanted to talk over the music they played. The rules of music licensing ruled out the obvious approach.</figcaption>
+      </figure>
+      <div class="pdr">
+        <div><b>Problem</b><p>Creators needed to speak over licensed music on a live broadcast, and nothing off the shelf did it across native audio, the real-time SDK, and the backend.</p></div>
+        <div><b>What I did</b><p>Led two engineers and a cross-organization effort with the AWS Chime team; earlier, led the Android app and the iOS migration to React Native.</p></div>
+        <div><b>Result</b><p>Shipped, and filed as a US patent application: Switching Wireless Profiles in Response to Trigger Events.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li><span class="when">2020 – present</span><div class="what"><b>Amazon, Senior Software Development Engineer (L6)</b><span>Ad serving and filtering for Sponsored Products and Brands; global ad campaigns; Amazon Music Amp; the Sponsored Products engine's move to native AWS.</span></div></li>
+      <li><span class="when">2016 – 2019</span><div class="what"><b>Webalo, Software Engineer</b><span>Architected the platform-agnostic UI toolkit and led the migration onto it; built CI/CD and the test framework.</span></div></li>
+      <li><span class="when">2015</span><div class="what"><b>Google, Software Engineering Intern</b><span>Sentiment prediction inside the partner-management tool, gTech.</span></div></li>
+      <li><span class="when">2013 – 2015</span><div class="what"><b>Wireless Stars, Software Engineer</b><span>Location-based traffic estimation from phone sensors with a research team; an augmented-reality app on Unity3D.</span></div></li>
+    </ul>
+    <p style="margin-top:1rem"><a href="https://github.com/samer-makary/my-latex-resume/blob/main/Samer%20Samy%20Makary.pdf">Full résumé, PDF</a></p>
+  </section>
+
+  <section>
+    <h2>Public record</h2>
+    <ul class="record">
+      <li><a href="https://youtu.be/BS4MPpEO66I?t=1067">AWS re:Invent 2021: Under the hood at Amazon Ads</a> <span>· the native-AWS migration I delivered the first proof of concept for</span></li>
+      <li><a href="https://techcrunch.com/2022/03/08/amazon-launches-a-live-radio-app-amp-which-lets-you-play-dj-with-the-amazon-music-catalog/">TechCrunch on the launch of Amp</a> <span>· the live radio app I helped build</span></li>
+      <li>US patent application, <em>Switching Wireless Profiles in Response to Trigger Events</em> <span>· the talk-over-music solution</span></li>
+      <li><a href="https://github.com/samer-makary">github.com/samer-makary</a> <span>· including the LaTeX source of the résumé</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p><a href="mailto:samer.samy.nazzir@gmail.com">samer.samy.nazzir@gmail.com</a> · Seattle, WA</p>
+  </section>
+
+  <footer>
+    <span>© 2026 Samer Makary</span>
+    <span>Text and diagrams are mine; product screenshots and press images belong to their owners.</span>
+
+  </footer>
+</div>
+
+<script>
+  /* play the animation unless the viewer prefers reduced motion */
+  (function () {
+    var v = document.querySelector('.clip video');
+    if (!v) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  })();
+</script>
+<!-- GoatCounter analytics tag goes here -->
+</body>
+</html>
